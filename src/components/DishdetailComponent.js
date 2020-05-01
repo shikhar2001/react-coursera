@@ -8,7 +8,7 @@ class DishDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dishdetail: this.props.dish
+            dishdetail: this.props.dish,
         }
     }
     renderDish(dish) {
@@ -21,19 +21,47 @@ class DishDetail extends Component {
                         <CardText>{dish.description}</CardText>
                     </CardBody>
                 </Card>
+
             );
         else
             return (
                 <div></div>
             );
     }
+    renderComments(comments) {
+        const c = this.props.dish.comments.map((comment) => {
+            return(
+                <div key={comment.id}>
+                    <h2>{comment.author}</h2>
+                </div>
+            );
+        });
+        if (comments != null) {
+            return (
+                <div>
+                    <h4>Comments</h4>
+                        {c}
+                    </div>
+            )
+        }
+        else
+            return (
+                <div></div>
+            );
+    }
     render() {
-        return(
+
+        return (
             <div className="row">
-            <div className="col-12 col-md-5 m-1">
-                {this.renderDish(this.props.dish)}
+                <div className="col-12 col-md-5 m-1">
+                    {this.renderDish(this.props.dish)}
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        {this.renderComments(this.props.dish)}
+                    </div>
+                </div>
             </div>
-        </div>
         )
     }
 };
