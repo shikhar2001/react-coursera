@@ -59,7 +59,7 @@ import DishDetail from './DishdetailComponent';
                         {this.renderDish(this.state.selectedDish)}
                       </div>
                     </div> */}
-                    <DishDetail dish ={this.state.selectedDish} />
+                    <DishDetail selectedDish ={this.state.selectedDish} />
                 </div>
             );
         }

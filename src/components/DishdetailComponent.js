@@ -3,12 +3,11 @@ import {
     Card, CardImg, CardImgOverlay, CardText, CardBody,
     CardTitle
 } from 'reactstrap';
-
 class DishDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dishdetail: this.props.dish,
+            dishdetail: this.props.selectedDish,
         }
     }
     renderDish(dish) {
@@ -21,29 +20,41 @@ class DishDetail extends Component {
                         <CardText>{dish.description}</CardText>
                     </CardBody>
                 </Card>
-
             );
         else
             return (
                 <div></div>
             );
+
     }
-    renderComments(comments) {
-        const c = this.props.dish.comments.map((comment) => {
-            return(
-                <div key={comment.id}>
-                    <h2>{comment.author}</h2>
-                </div>
-            );
-        });
-        if (comments != null) {
-            return (
-                <div>
-                    <h4>Comments</h4>
-                        {c}
-                    </div>
-            )
-        }
+    renderComments(dish) {
+        if (dish != null)
+            {
+                if(dish.comments!=null)
+                {
+                    const dishcomments = dish.comments.map((comment) => {
+                        return(
+                            <div key = {comment.id}>
+                                <p>{comment.comment}</p>
+                        <p>-- {comment.author}, {comment.date}</p>
+                            </div>
+                        )
+                    })
+                    return(
+                        <div>
+                            <h4>Comments</h4>
+                    <div>{dishcomments}</div>
+                        </div>
+                    );
+                }
+                else
+                {
+                    return (
+                        <div></div>
+                    );
+                }
+
+            }
         else
             return (
                 <div></div>
@@ -54,12 +65,10 @@ class DishDetail extends Component {
         return (
             <div className="row">
                 <div className="col-12 col-md-5 m-1">
-                    {this.renderDish(this.props.dish)}
+                    {this.renderDish(this.props.selectedDish)}
                 </div>
-                <div className="row">
-                    <div className="col-12 col-md-5 m-1">
-                        {this.renderComments(this.props.dish)}
-                    </div>
+                <div className="col-12 col-md-5 m-1">
+                    {this.renderComments(this.props.selectedDish)}
                 </div>
             </div>
         )
