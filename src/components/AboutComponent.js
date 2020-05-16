@@ -8,7 +8,7 @@ function About(props) {
             <React.Fragment>
                 <Media className="my-5">
             <Media image left >
-                <Media object src={leader.image} alt="Generic placeholder image" />
+                <Media object src={leader.image} alt={leader.name} />
             </Media>
             <Media body className="mx-5 mb-3">
                 <Media heading>
