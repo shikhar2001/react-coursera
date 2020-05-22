@@ -209,6 +209,14 @@
       "comment": "Ye Sab khane ko kab milega",
       "date": "2020-05-22T20:59:03.950Z",
       "id": 20
+    },
+    {
+      "dishId": 0,
+      "rating": "4",
+      "author": "Shikhar",
+      "comment": "meri to nikal padi",
+      "date": "2020-05-22T21:45:49.123Z",
+      "id": 21
     }
   ],
   "promotions": [
