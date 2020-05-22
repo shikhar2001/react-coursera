@@ -93,6 +93,7 @@ export const fetchPromos = () => (dispatch) => {
         }
       },
       error => {
+          
             var errmess = new Error(error.message);
             throw errmess;
       })
