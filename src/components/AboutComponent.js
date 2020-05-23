@@ -1,14 +1,16 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function About(props) {
-    const leaders = props.leaders.map((leader) => {
+    const leaders = props.leaders.leaders.map((leader) => {
         return (
             <React.Fragment>
                 <Media className="my-5">
             <Media image left >
-                <Media object src={leader.image} alt={leader.name} />
+                <Media object src={baseUrl+leader.image} alt={leader.name} />
             </Media>
             <Media body className="mx-5 mb-3">
                 <Media heading>
@@ -22,7 +24,6 @@ function About(props) {
         );
 }
     )
-
     return (
         <div className="container">
             <div className="row">
@@ -79,7 +80,7 @@ function About(props) {
                 </div>
                 <div className="col-12">
                     <Media list>
-                        <RenderLeader leaders={leaders} />
+                        <RenderLeader leaders={leaders} props={props} />
                     </Media>
                 </div>
             </div>
@@ -88,6 +89,27 @@ function About(props) {
 }
 
 function RenderLeader(props) {
+    if (props.props.leaders.isLoading) {
+        return(
+            <div className="container">
+                <div className="row">            
+                    <Loading />
+                </div>
+            </div>
+        );
+    }
+    else if (props.props.leaders.errMess) {
+        return(
+            <div className="container">
+                <div className="row"> 
+                    <div className="col-12">
+                        <h4>{props.leaders.errMess}</h4>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+    else
 return (
     <div>
         {props.leaders}
