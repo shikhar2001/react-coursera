@@ -217,6 +217,14 @@
       "comment": "meri to nikal padi",
       "date": "2020-05-22T21:45:49.123Z",
       "id": 21
+    },
+    {
+      "dishId": 0,
+      "rating": "2",
+      "author": "fhdsklff",
+      "comment": "czc",
+      "date": "2020-05-23T11:53:33.005Z",
+      "id": 22
     }
   ],
   "promotions": [
@@ -426,6 +434,16 @@
       "contactType": "Email",
       "message": "d",
       "id": 15
+    },
+    {
+      "firstname": "shikhar",
+      "lastname": "shukla",
+      "telnum": "7879072257",
+      "email": "dvbvbvsvs@GH.COM",
+      "agree": true,
+      "contactType": "Email",
+      "message": "dasd",
+      "id": 16
     }
   ]
 }

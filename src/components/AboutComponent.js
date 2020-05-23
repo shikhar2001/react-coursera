@@ -3,26 +3,27 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { Fade, Stagger } from 'react-animation-components';
 
 function About(props) {
     const leaders = props.leaders.leaders.map((leader) => {
         return (
             <React.Fragment>
                 <Media className="my-5">
-            <Media image left >
-                <Media object src={baseUrl+leader.image} alt={leader.name} />
-            </Media>
-            <Media body className="mx-5 mb-3">
-                <Media heading>
-                    {leader.name}
+                    <Media image left >
+                        <Media object src={baseUrl + leader.image} alt={leader.name} />
+                    </Media>
+                    <Media body className="mx-5 mb-3">
+                        <Media heading>
+                            {leader.name}
+                        </Media>
+                        <h6>{leader.designation}</h6>
+                        <p>{leader.description}</p>
+                    </Media>
                 </Media>
-        <h6>{leader.designation}</h6>
-                <p>{leader.description}</p>
-      </Media>
-      </Media>
-      </React.Fragment>
+            </React.Fragment>
         );
-}
+    }
     )
     return (
         <div className="container">
@@ -90,31 +91,53 @@ function About(props) {
 
 function RenderLeader(props) {
     if (props.props.leaders.isLoading) {
-        return(
+        return (
             <div className="container">
-                <div className="row">            
+                <div className="row">
                     <Loading />
                 </div>
             </div>
         );
     }
     else if (props.props.leaders.errMess) {
-        return(
+        return (
             <div className="container">
-                <div className="row"> 
+                <div className="row">
                     <div className="col-12">
-                        <h4>{props.leaders.errMess}</h4>
+                        <h4>{props.props.leaders.errMess}</h4>
                     </div>
                 </div>
             </div>
         );
     }
     else
-return (
-    <div>
-        {props.leaders}
-    </div>
-)
+        return (
+            <React.Fragment>
+                <Stagger in>
+                    {props.props.leaders.leaders.map((leader) => {
+        return (
+            <Fade in>
+                        <React.Fragment>
+                            <Media className="my-5">
+                                <Media image left >
+                                    <Media object src={baseUrl + leader.image} alt={leader.name} />
+                                </Media>
+                                <Media body className="mx-5 mb-3">
+                                    <Media heading>
+                                        {leader.name}
+                                    </Media>
+                                    <h6>{leader.designation}</h6>
+                                    <p>{leader.description}</p>
+                                </Media>
+                            </Media>
+                        </React.Fragment>
+                    </Fade>
+        );
+}
+    )}
+</Stagger>
+            </React.Fragment>
+        )
 }
 
 export default About;    
