@@ -225,6 +225,14 @@
       "comment": "czc",
       "date": "2020-05-23T11:53:33.005Z",
       "id": 22
+    },
+    {
+      "dishId": 0,
+      "rating": "2",
+      "author": "Shikhar",
+      "comment": "h",
+      "date": "2020-05-26T12:27:19.149Z",
+      "id": 23
     }
   ],
   "promotions": [
@@ -444,6 +452,16 @@
       "contactType": "Email",
       "message": "dasd",
       "id": 16
+    },
+    {
+      "firstname": "hjbfasdvh",
+      "lastname": "bndfm",
+      "telnum": "7879072257",
+      "email": "dvbvbvsvs@GH.COM",
+      "agree": true,
+      "contactType": "Email",
+      "message": "cz",
+      "id": 17
     }
   ]
 }
